@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CaptureCrew';
+
+  isNavbarVisible = false;
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    const headerHeight = document.querySelector('cc-header')?.clientHeight || 0;
+    this.isNavbarVisible = window.scrollY > headerHeight;
+  }
 }
