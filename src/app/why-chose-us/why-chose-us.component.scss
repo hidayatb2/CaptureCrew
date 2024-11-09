@@ -1,0 +1,10 @@
+/*** Facts ***/
+.fact-item {
+    transition: .3s;
+}
+
+.fact-item:hover {
+    margin-top: -10px;
+    background: #FFFFFF !important;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+}

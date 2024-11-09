@@ -1,0 +1,49 @@
+.project-item {
+    position: relative;
+}
+
+.project-item .project-title {
+    position: absolute;
+    top: auto;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 1rem;
+    text-align: center;
+    background: #FFFFFF;
+    transition: .5s;
+    font-family: 'Playfair Display', serif;
+    visibility: visible; 
+    animation-delay: 0.3s;
+}
+
+.project-item:hover .project-title {
+    color: #FFFFFF !important;
+    background: black;
+    cursor: pointer;
+}
+
+.img-small {
+    height: 200px; /* Smaller image */
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  .img-large {
+    height: 400px; /* Larger image */
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .img-large {
+      height: 200px;
+    }
+    .img-small {
+      height: 100px;
+    }
+  }
+  
+  
+  

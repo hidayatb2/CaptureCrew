@@ -1,0 +1,17 @@
+.service-item,
+.service-item * {
+    transition: .3s;
+}
+
+.service-item:hover {
+    margin-top: -10px;
+    background: var(--primary) !important;
+}
+
+.service-item:hover * {
+    color: var(--light);
+}
+
+.service-item:hover .service-overlay {
+    opacity: 1;
+}

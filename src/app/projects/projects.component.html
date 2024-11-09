@@ -1,0 +1,56 @@
+<div class="container-xxl py-5">
+  <div class="container py-5">
+    <div
+      class="text-center mx-auto mb-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 500px"
+    >
+      <p class="text-black text-uppercase mb-2">Our Works</p>
+      <h1 class="display-6 mb-0">
+        Discover Our Unique And Creative Photoshoot
+      </h1>
+    </div>
+    <div class="row g-3">
+      @for (project of projects; track $index) {
+        <div class="col-lg-3 col-md-6 wow fadeInUp" [attr.data-wow-delay]="0.1 * $index + 's'" >
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="project-item">
+                <img
+                  class="img-fluid"
+                  [src]="project.images[0].src"
+                  [ngClass]="{ 'img-small': $index % 2 === 0, 'img-large': $index % 2 !== 0 }"
+                  alt="{{ project.images[0].title }}"
+                />
+                <a
+                  class="project-title h5 mb-0"
+                
+                  (click)="openLightbox($index, project.images[0])"
+                  data-lightbox="project"
+                >
+                  {{ project.images[0].title }}
+                </a>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="project-item">
+                <img
+                  class="img-fluid"
+                  [src]="project.images[1].src"
+                  [ngClass]="{ 'img-large': $index % 2 === 0, 'img-small': $index % 2 !== 0 }"
+                  alt="{{ project.images[1].title }}"
+                />
+                <a
+                  class="project-title h5 mb-0 no-underline"
+                  (click)="openLightbox($index, project.images[1])"
+                >
+                  {{ project.images[1].title }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
