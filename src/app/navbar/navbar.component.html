@@ -1,14 +1,15 @@
 <div class="navbar bg-base-100 shadow-2xl py-0 overflow-hidden">
   <div class="flex-1 flex items-center">
-    <a href="#header" class="btn btn-ghost text-xl">
+    <a (click)="scrollToSection('home')" class="btn btn-ghost text-xl">
       <img class="h-[5rem] w-auto -mt-5" src="../../assets/image.svg" alt="">
     </a>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal  px-1 mb-0">
-      <li><a href="#about-us">About Us</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a (click)="scrollToSection('home')">Home</a></li>
+      <li><a (click)="scrollToSection('about-us')">About Us</a></li>
+      <li><a (click)="scrollToSection('services')">Services</a></li>
+      <li><a (click)="scrollToSection('projects')">Projects</a></li>
       <li><button class="bg-black text-white rounded-full">Book Now</button></li>
     </ul>
   </div>

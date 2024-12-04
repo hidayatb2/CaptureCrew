@@ -1,0 +1,42 @@
+<div class="h-screen bg-gray-50 flex flex-col justify-center items-center">
+  <div
+    class="bg-white border border-gray-300 w-80 py-8 flex items-center flex-col mb-3"
+  >
+    <h1 class="bg-no-repeat">
+      <img class="capturecrew-logo" src="../../assets/image.png" alt="" />
+    </h1>
+    <form
+      #loginForm="ngForm"
+      (ngSubmit)="login(loginForm)"
+      class="mt-8 w-64 flex flex-col"
+    >
+      <input
+        autofocus
+        name="email"
+        class="text-xs w-full mb-2 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none"
+        id="email"
+        placeholder="email"
+        [(ngModel)]="loginModel.email"
+        type="text"
+      />
+      <input
+        autofocus
+        name="password"
+        class="text-xs w-full mb-4 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none"
+        id="password"
+        placeholder="Password"
+        [(ngModel)]="loginModel.password"
+        type="password"
+      />
+      <button
+        class="text-sm text-center bg-black text-white py-1 rounded font-medium"
+        type="submit"
+      >
+        Log In
+      </button>
+    </form>
+    <a class="text-xs text-blue-900 mt-4 cursor-pointer -mb-4"
+      >Forgot password?</a
+    >
+  </div>
+</div>

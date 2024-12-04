@@ -1,0 +1,31 @@
+.main-container {
+  scroll-behavior: smooth;
+}
+// cc-navbar {
+//   opacity: 0;
+//   transform: translateY(-20px);
+//   transition: opacity 1.5s ease, transform 1.5s ease;
+//   width: 100%;
+//   top: 0;
+//   z-index: 1000;
+// }
+
+// .show-navbar {
+//   opacity: 1;
+//   transform: translateY(0);
+//   position: fixed;
+// }
+
+:host ::ng-deep cc-navbar {
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep .navbar-visible {
+  transform: translateY(0);
+}
+
+:host ::ng-deep .navbar-at-top {
+  background: transparent;
+  box-shadow: none;
+}

@@ -1,19 +1,41 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { ServicesComponent } from './services/services.component';
-import { HeaderComponent } from './header/header.component';
+import { ServicesComponent } from './service/services.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HeaderComponent },
-  { path: 'aboutus', component: AboutUsComponent },
-  { path: 'services', component: ServicesComponent },
-  // Wildcard route for a 404 page
- // { path: '**', component: NotFoundComponent }
+  {
+    path: '',
+    component: HomeComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'aboutus', component: AboutUsComponent },
+      { path: 'services', component: ServicesComponent },
+    ],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
